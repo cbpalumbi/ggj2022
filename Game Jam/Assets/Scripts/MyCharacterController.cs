@@ -55,8 +55,9 @@ public class MyCharacterController : MonoBehaviour
         Vector2 direction = Vector2.down;
         float distance = 2f;
         Debug.DrawRay(position, direction, Color.green);
-        RaycastHit2D hit = Physics2D.Raycast(position, direction, distance, groundLayer);
-        if (hit.collider != null) {
+        RaycastHit2D hitLeft = Physics2D.Raycast(position - new Vector2(1.3f, 0), direction, distance, groundLayer);
+        RaycastHit2D hitRight = Physics2D.Raycast(position + new Vector2(1.3f, 0), direction, distance, groundLayer);
+        if (hitLeft.collider != null || hitRight.collider != null) {
             return true;
         }
         return false;

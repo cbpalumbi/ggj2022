@@ -69,10 +69,10 @@ public class AnimationController : MonoBehaviour
             }
         }
         if (GetUpdatedGroundedState()){
-            if (rb.velocity == Vector2.zero) {
+            isJumping = false;
+            if (rb.velocity.x < 0.1f) {
                 isWalking = false;
                 isClimbing = false;
-                isJumping = false;
             } else {
                 isWalking = true;
             }
