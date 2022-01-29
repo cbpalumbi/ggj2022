@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: c2baf90595bd3427b9d1eba00b41a17d
+=======
+guid: afc53a29bdf554784bd57e16d9bc459a
+>>>>>>> 9f19a3a (KG - Refined level 1 and added prefabs)
 DefaultImporter:
   externalObjects: {}
   userData: 
