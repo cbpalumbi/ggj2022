@@ -20,7 +20,7 @@ public class ClimbableWall : MonoBehaviour
     }
 
     void OnCollisionStay2D(Collision2D col){
-        if(Input.GetKey(KeyCode.D)){
+        if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)){
             if(col.gameObject.tag == "ClimbableWall"){
                 Debug.Log(col.gameObject.name + " : " + gameObject.name + " : ");
                 transform.Translate(Vector3.up * Time.deltaTime * speed, Space.World);
