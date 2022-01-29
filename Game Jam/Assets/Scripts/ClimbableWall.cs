@@ -23,8 +23,6 @@ public class ClimbableWall : MonoBehaviour
         if(Input.GetKey(KeyCode.D)){
             if(col.gameObject.tag == "ClimbableWall"){
                 Debug.Log(col.gameObject.name + " : " + gameObject.name + " : ");
-                //transform.Translate(Vector3.up * Time.deltaTime * speed, Space.World);
-                //transform.Translate(0, Time.deltaTime, 0, Space.World);
                 transform.Translate(Vector3.up * Time.deltaTime * speed, Space.World);
 
         }
