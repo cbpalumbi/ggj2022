@@ -7,7 +7,11 @@ public class AnimationController : MonoBehaviour
     SpriteRenderer myRenderer;
     Animator myAnimator;
     Rigidbody2D rb;
+    MyCharacterController myCharacterController;
+    ClimbableWall myClimbableWall;
     bool isWalking;
+    bool isJumping;
+    bool isClimbing;
     
     // Start is called before the first frame update
     void Start()
@@ -15,6 +19,8 @@ public class AnimationController : MonoBehaviour
         myRenderer = gameObject.GetComponent<SpriteRenderer>();
         myAnimator = gameObject.GetComponent<Animator>();
         rb = gameObject.GetComponent<Rigidbody2D>();
+        myCharacterController = gameObject.GetComponent<MyCharacterController>();
+        myClimbableWall = gameObject.GetComponent<ClimbableWall>();
         myAnimator.SetBool("is_walking", false);
     }
 
@@ -26,27 +32,57 @@ public class AnimationController : MonoBehaviour
         myRenderer.flipX = false;
     }
 
+    bool GetUpdatedGroundedState() {
+        return myCharacterController.IsGrounded();
+    }
+    bool GetUpdatedClimbingState() {
+        return myClimbableWall.isClimbing;
+    }
+
     void Update() {
-        if ((Input.GetKeyDown(KeyCode.A)) || (Input.GetKeyDown(KeyCode.LeftArrow))) {
-            //isWalking = true;
+        Debug.Log("is climbing is " + isClimbing);
+        // if (GetUpdatedClimbingState()) {
+        //     isClimbing = true;
+        // } else {
+        //     isClimbing = false;
+        // }
+        if ((Input.GetKey(KeyCode.A)) || (Input.GetKey(KeyCode.LeftArrow))) {
             if (!myRenderer.flipX) {
                 turnToFaceLeft();
             }
+            if (GetUpdatedClimbingState()) { 
+                isJumping = false;
+                isClimbing = true;
+            } else {
+                isClimbing = false;
+            }
         }
-        if ((Input.GetKeyDown(KeyCode.D)) || (Input.GetKeyDown(KeyCode.RightArrow))) {
-            //isWalking = true;
+        if ((Input.GetKey(KeyCode.D)) || (Input.GetKey(KeyCode.RightArrow))) {
             if (myRenderer.flipX) {
                 turnToFaceRight();
             }
+            if (GetUpdatedClimbingState()) { 
+                isJumping = false;
+                isClimbing = true;
+            } else {
+                isClimbing = false;
+            }
         }
-        // if (rb.velocity != Vector2.zero) {
-        //     myAnimator.SetBool("is_walking", true);
-        // }
-        if (rb.velocity != Vector2.zero) {
-            isWalking = true;
+        if (GetUpdatedGroundedState()){
+            if (rb.velocity == Vector2.zero) {
+                isWalking = false;
+                isClimbing = false;
+                isJumping = false;
+            } else {
+                isWalking = true;
+            }
         } else {
-            isWalking = false;
+            if (!isClimbing) {
+                isJumping = true;
+            }
         }
+        myAnimator.SetBool("is_climbing", isClimbing);
         myAnimator.SetBool("is_walking", isWalking);
+        myAnimator.SetBool("is_jumping", isJumping);
     }
 }
