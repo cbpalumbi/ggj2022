@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: -1082635155745639818}
   - component: {fileID: 4391720013656901331}
   - component: {fileID: 4938319263778043240}
+  - component: {fileID: -800173428404220794}
   m_Layer: 6
   m_Name: Frat Cat
   m_TagString: Untagged
@@ -186,6 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd37e0d48bdae409fbfefbf9c49bd8c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isClimbing: 0
 --- !u!114 &-1082635155745639818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,5 +229,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 823411cc44257492d84fa3a433e0bfd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-800173428404220794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7432883211251360567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c93c1f58ed7f7445f80a837ce568476b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
