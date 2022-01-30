@@ -8,7 +8,13 @@ public class PauseMenu : MonoBehaviour
     // Start is called before the first frame update
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
+    // public GameObject mainCamera;
+    // Vector3 cameraPosition;
     // Update is called once per frame
+    void Start() {
+        //mainCamera = GameObject.Find("Main Camera");
+        //cameraPosition = mainCamera.GetComponent<Transform>().position;
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape)){
@@ -35,11 +41,20 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void LoadMenu(){
-        //Time timeScale = If;
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("MainMenuScene");
     }
 
     public void QuitGame(){
         Application.Quit();
     }
+
+    public void RestartLevel(){
+        //mainCamera.GetComponent<Transform>().position = cameraPosition;
+        //SceneManager.UnloadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        
+    }
+
+
 }
