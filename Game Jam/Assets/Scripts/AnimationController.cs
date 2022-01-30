@@ -40,39 +40,35 @@ public class AnimationController : MonoBehaviour
     }
 
     void Update() {
-        Debug.Log("is climbing is " + isClimbing);
-        // if (GetUpdatedClimbingState()) {
-        //     isClimbing = true;
-        // } else {
-        //     isClimbing = false;
-        // }
         if ((Input.GetKey(KeyCode.A)) || (Input.GetKey(KeyCode.LeftArrow))) {
-            if (!myRenderer.flipX) {
-                turnToFaceLeft();
-            }
             if (GetUpdatedClimbingState()) { 
                 isJumping = false;
                 isClimbing = true;
             } else {
+                isClimbing = false;
+            }
+            if (!myRenderer.flipX) {
+                turnToFaceLeft();
                 isClimbing = false;
             }
         }
         if ((Input.GetKey(KeyCode.D)) || (Input.GetKey(KeyCode.RightArrow))) {
-            if (myRenderer.flipX) {
-                turnToFaceRight();
-            }
             if (GetUpdatedClimbingState()) { 
                 isJumping = false;
                 isClimbing = true;
             } else {
                 isClimbing = false;
             }
+            if (myRenderer.flipX) {
+                turnToFaceRight();
+                isClimbing = false;
+            }
         }
         if (GetUpdatedGroundedState()){
+            isClimbing = false;
             isJumping = false;
-            if (rb.velocity.x < 0.1f) {
+            if ((rb.velocity.x < 0.05f) && (rb.velocity.x > -0.05f)) {
                 isWalking = false;
-                isClimbing = false;
             } else {
                 isWalking = true;
             }
