@@ -158,8 +158,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4.9404, y: 9}
-  m_SizeDelta: {x: 167.2939, y: 74.6328}
+  m_AnchoredPosition: {x: 4.9404, y: 109}
+  m_SizeDelta: {x: 167.2939, y: 56.4015}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &91790674
 MonoBehaviour:
@@ -180,10 +180,10 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 0
+  m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.7411765, g: 0.38823533, b: 0.21176472, a: 0.9647059}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_NormalColor: {r: 0.6792453, g: 0.4079744, b: 0.27233893, a: 0.87058824}
+    m_HighlightedColor: {r: 0.8773585, g: 0.5340023, b: 0.33521718, a: 0.8}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -381,7 +381,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 558349737}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -390,7 +390,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3.000002, y: 9.000007}
+  m_AnchoredPosition: {x: 4.9403687, y: 109.000244}
   m_SizeDelta: {x: 76.303, y: 35.7708}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &558349739
@@ -739,7 +739,7 @@ SpriteRenderer:
   m_SortingLayerID: 1469362317
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 34b7bbc6109414adf9e07074250640f9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7bf37895b71ca446a94332a1e32fa96a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
