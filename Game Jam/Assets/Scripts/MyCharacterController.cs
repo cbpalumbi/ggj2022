@@ -5,6 +5,7 @@ using UnityEngine;
 public class MyCharacterController : MonoBehaviour
 {
     Rigidbody2D myRigidbody;
+    ClimbableWall climbableWall;
     public LayerMask groundLayer;
 
 
@@ -13,6 +14,7 @@ public class MyCharacterController : MonoBehaviour
     void Start()
     {
         myRigidbody = gameObject.GetComponent<Rigidbody2D>();
+        climbableWall = gameObject.GetComponent<ClimbableWall>();
     }
 
     // Update is called once per frame
@@ -30,7 +32,7 @@ public class MyCharacterController : MonoBehaviour
         if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) {
             myRigidbody.AddForce(-transform.up * 10f);
         }
-        if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && IsGrounded()) {
+        if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && (IsGrounded() || climbableWall.isClimbing)) {
             myRigidbody.AddForce(transform.up * 400f);
         }
 
@@ -55,8 +57,8 @@ public class MyCharacterController : MonoBehaviour
         Vector2 direction = Vector2.down;
         float distance = 2f;
         Debug.DrawRay(position, direction, Color.green);
-        RaycastHit2D hitLeft = Physics2D.Raycast(position - new Vector2(1.3f, 0), direction, distance, groundLayer);
-        RaycastHit2D hitRight = Physics2D.Raycast(position + new Vector2(1.3f, 0), direction, distance, groundLayer);
+        RaycastHit2D hitLeft = Physics2D.Raycast(position - new Vector2(1f, 0), direction, distance, groundLayer);
+        RaycastHit2D hitRight = Physics2D.Raycast(position + new Vector2(1f, 0), direction, distance, groundLayer);
         if (hitLeft.collider != null || hitRight.collider != null) {
             return true;
         }
