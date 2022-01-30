@@ -384,7 +384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5456ad69555cf4e7eb00db8e85f808eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextScene: Level3
+  nextScene: Level4
   videoLength: 15
 --- !u!1 &870207824
 GameObject:
