@@ -7,7 +7,7 @@ public class MyCharacterController : MonoBehaviour
     Rigidbody2D myRigidbody;
     ClimbableWall climbableWall;
     public LayerMask groundLayer;
-
+    public float maxSpeed;
 
 
     // Start is called before the first frame update
@@ -48,7 +48,10 @@ public class MyCharacterController : MonoBehaviour
             myRigidbody.AddForce(-transform.up * 20f);
         }
         
-        
+        if (myRigidbody.velocity.x > maxSpeed) {
+            Debug.Log("TOOO FAST");
+            myRigidbody.velocity = new Vector2(maxSpeed, myRigidbody.velocity.y);
+        }
     
     }
 
