@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ClimbableWall : MonoBehaviour
 {
-    int speed = 5;
+    int speed = 7;
     Transform transform;
     public bool isClimbing;
     
