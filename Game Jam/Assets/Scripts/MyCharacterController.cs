@@ -49,8 +49,10 @@ public class MyCharacterController : MonoBehaviour
         }
         
         if (myRigidbody.velocity.x > maxSpeed) {
-            Debug.Log("TOOO FAST");
+            //Debug.Log("TOOO FAST");
             myRigidbody.velocity = new Vector2(maxSpeed, myRigidbody.velocity.y);
+        } else if (myRigidbody.velocity.x < -maxSpeed) {
+            myRigidbody.velocity = new Vector2(-maxSpeed, myRigidbody.velocity.y);
         }
     
     }
